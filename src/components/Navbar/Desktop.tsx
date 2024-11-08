@@ -29,9 +29,9 @@ const Desktop = ({ renderMobile }: { renderMobile?: () => JSX.Element }) => {
                   target={isExternal ? "_blank" : "_self"}
                   referrerPolicy="no-referrer"
                 >
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    {label}
-                  </NavigationMenuLink>
+                  {/* <NavigationMenuLink className={navigationMenuTriggerStyle()}> */}
+                  {label}
+                  {/* </NavigationMenuLink> */}
                 </Link>
               </NavigationMenuItem>
             );

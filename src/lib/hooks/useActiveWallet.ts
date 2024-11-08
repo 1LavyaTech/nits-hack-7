@@ -7,6 +7,7 @@ import {
     usePublicClient,
     useWalletClient,
 } from "wagmi";
+import { wagmiConfig } from "../wagmi";
 
 const useActiveWallet = () => {
     const { address, connector, isConnected, isConnecting, chain, } = useAccount();
@@ -30,7 +31,7 @@ const useActiveWallet = () => {
 
     return {
         address,
-        chain,
+        chain: wagmiConfig.chains[0],
         chainId,
         connector,
         isConnected: isConnected,

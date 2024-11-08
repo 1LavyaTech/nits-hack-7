@@ -64,6 +64,7 @@ const LendForm = () => {
     <div>
       {loans?.map(
         (loan) =>
+          //@ts-ignore
           loan[0] > 0n && (
             <Card className="p-7" key="abcd">
               <div className="flex flex-col gap-4">

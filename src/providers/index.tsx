@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React, { ReactNode } from "react";
 import { WagmiProvider } from "wagmi";
 import { ThemeProvider } from "./Theme";
+import PrivyProviderInternal from "./Privy";
 
 const queryClient = new QueryClient();
 const Providers = ({ children }: { children: ReactNode }) => {
@@ -17,7 +18,7 @@ const Providers = ({ children }: { children: ReactNode }) => {
     >
       <WagmiProvider config={wagmiConfig}>
         <QueryClientProvider client={queryClient}>
-          {children}
+          <PrivyProviderInternal> {children}</PrivyProviderInternal>
         </QueryClientProvider>
       </WagmiProvider>
     </ThemeProvider>

@@ -10,10 +10,6 @@ export const navItems = [
   { label: "Lend", href: "/lend" },
 ];
 
-export const GetCreditScoreButton = () => {
-  return <Button>Get Credit Score</Button>;
-};
-
 export default function ModeToggle() {
   const { setTheme, theme } = useTheme();
 

@@ -7,9 +7,8 @@ import {
 } from "@/components/ui/navigation-menu";
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import Link from "next/link";
-import { Button } from "../ui/button";
-import ModeToggle, { GetCreditScoreButton, navItems } from "./shared";
-import ConnectWalletButton from "../Buttons/ConnectWallet";
+import ModeToggle, { navItems } from "./shared";
+import LoginButton from "../Buttons/Login";
 
 const Desktop = ({ renderMobile }: { renderMobile?: () => JSX.Element }) => {
   return (
@@ -40,10 +39,10 @@ const Desktop = ({ renderMobile }: { renderMobile?: () => JSX.Element }) => {
         </NavigationMenuList>
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 items-center">
         <ModeToggle />
-        <GetCreditScoreButton />
-        <ConnectWalletButton className="max-lg:hidden" />
+        <LoginButton />
+
         {renderMobile?.()}
       </div>
     </NavigationMenu>

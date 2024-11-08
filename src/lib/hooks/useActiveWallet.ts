@@ -1,10 +1,8 @@
 
 
-import { useRouter } from "next/router";
-import { useMemo } from "react";
-import { isAddress, type Address, } from "viem";
-import {
 
+import { useMemo } from "react";
+import {
     useAccount,
     usePublicClient,
     useWalletClient,
@@ -12,9 +10,6 @@ import {
 
 const useActiveWallet = () => {
     const { address, connector, isConnected, isConnecting, chain, } = useAccount();
-    const { query, } = useRouter();
-    const { account: addressFromUrl } = query;
-
 
     const chainIdEthereum = useMemo(() => {
         if (typeof window !== "undefined" && window.ethereum?.chainId) {
@@ -31,22 +26,14 @@ const useActiveWallet = () => {
     const provider = usePublicClient({ chainId });
     const { data: signer } = useWalletClient({ chainId });
 
-
-
-    const assumedAccount = isAddress(addressFromUrl as Address)
-        ? (addressFromUrl as Address)
-        : null;
-
-    const account = assumedAccount ?? address;
-    const isValid = account && isConnected;
-
+    const isValid = address && isConnected;
 
     return {
-        account,
+        address,
         chain,
         chainId,
         connector,
-        isConnected: assumedAccount ? true : isConnected,
+        isConnected: isConnected,
         isConnecting,
         isValid,
         library: provider,

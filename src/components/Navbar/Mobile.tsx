@@ -3,10 +3,10 @@
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { buttonVariants } from "../ui/button";
 import Link from "next/link";
-import { GetCreditScoreButton, navItems } from "./shared";
+import { navItems } from "./shared";
 import { MenuIcon } from "lucide-react";
 import { useCallback, useState } from "react";
-import ConnectWalletButton from "../Buttons/ConnectWallet";
+import LoginButton from "../Buttons/Login";
 
 export function Mobile() {
   const [isOpen, toggleOpen] = useState<boolean>(false);
@@ -22,7 +22,7 @@ export function Mobile() {
         side="right"
         className="flex flex-col items-center gap-7 justify-center"
       >
-        <ConnectWalletButton />
+        <LoginButton />
         {navItems.map((item, index) => (
           <Link
             className={buttonVariants({ variant: "ghost", size: "lg" })}
@@ -33,7 +33,6 @@ export function Mobile() {
             {item?.label}
           </Link>
         ))}
-        <GetCreditScoreButton />
       </SheetContent>
     </Sheet>
   );
